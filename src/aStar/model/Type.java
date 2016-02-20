@@ -1,0 +1,5 @@
+package aStar.model;
+
+public enum Type {
+    START_NODE, GOAL_NODE, BLOCK_NODE, REGULAR_NODE, PATH_NODE, EMPTY, VISITED, NEIGHBOUR
+};
