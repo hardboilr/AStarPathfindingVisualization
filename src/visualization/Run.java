@@ -27,7 +27,6 @@ public class Run {
                 + "-------\n"
                 + "-------\n";
         
-        
         String b1
                 = "---g-\n"
                 + "-xx--\n"
@@ -83,7 +82,7 @@ public class Run {
                 + "-----------------------x---------------------\n"
                 + "--x------------------------------------------\n";
 
-        Board board = new Board(b4);
+        Board board = new Board(b2); //< ---- select board here. Feel free to create new boards.
         Scenario scen1 = new Scenario(boardSizeX, boardSizeY, board.getNodes(Type.BLOCK_NODE));
 
         PanAndZoom2DApp app = new SearchAlgorithmVisualizationApp(aStar, scen1, board.getNode(Type.START_NODE), board.getNode(Type.GOAL_NODE));
