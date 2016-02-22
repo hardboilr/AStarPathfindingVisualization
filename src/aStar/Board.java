@@ -18,7 +18,6 @@ public class Board {
         boardSizeX = boardRows.get(0).length();
         boardSizeY = boardRows.size();
         Collections.reverse(boardRows);
-        
     }
 
     public List<Node> getNodes(Type type) {
@@ -75,5 +74,4 @@ public class Board {
         br.addAll(Arrays.asList(board));
         return br;
     }
-
 }

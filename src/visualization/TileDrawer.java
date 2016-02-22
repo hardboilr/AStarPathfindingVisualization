@@ -29,8 +29,8 @@ public class TileDrawer {
 
         canvas.setColor(colorFact.getWhite());
         canvas.drawFilledRectangle(g2d.newPoint2D(0.5, 0.5), 0.95, 0.95);
-        DecimalFormat df = new DecimalFormat("#.##");
-        df.setRoundingMode(RoundingMode.CEILING);
+        DecimalFormat df = new DecimalFormat("#");
+        df.setRoundingMode(RoundingMode.HALF_UP);
 
         // draw name text
         canvas.setColor(colorFact.getRed());
@@ -42,16 +42,16 @@ public class TileDrawer {
                 case START_NODE:
                     canvas.setColor(colorFact.getBlue());
                     canvas.drawFilledRectangle(g2d.newPoint2D(0.5, 0.5), 0.95, 0.95);
-                    
+
                     canvas.setColor(colorFact.getWhite());
                     canvas.drawText(g2d.newPoint2D(0.5, 0.5), "A", 0.5, true, true);
                     canvas.drawText(g2d.newPoint2D(0.5, 0.15), tile.getName(), 0.15, true, true);
-                    
+
                     break;
                 case VISITED:
                     canvas.setColor(colorFact.getRed());
                     canvas.drawFilledRectangle(g2d.newPoint2D(0.5, 0.5), 0.95, 0.95);
-                    
+
                     canvas.setColor(colorFact.getWhite());
                     canvas.drawText(g2d.newPoint2D(0.5, 0.4), "F:" + df.format(tile.getfCost()), 0.25, true, true);
                     canvas.drawText(g2d.newPoint2D(0.75, 0.8), "H:" + df.format(tile.gethCost()), 0.15, true, true);
@@ -61,7 +61,7 @@ public class TileDrawer {
                 case NEIGHBOUR:
                     canvas.setColor(colorFact.getGreen());
                     canvas.drawFilledRectangle(g2d.newPoint2D(0.5, 0.5), 0.95, 0.95);
-                    
+
                     canvas.setColor(colorFact.getWhite());
                     canvas.drawText(g2d.newPoint2D(0.5, 0.4), "F:" + df.format(tile.getfCost()), 0.25, true, true);
                     canvas.drawText(g2d.newPoint2D(0.75, 0.8), "H:" + df.format(tile.gethCost()), 0.15, true, true);
@@ -85,7 +85,7 @@ public class TileDrawer {
                 case BLOCK_NODE:
                     canvas.setColor(colorFact.getBlack());
                     canvas.drawFilledRectangle(g2d.newPoint2D(0.5, 0.5), 0.95, 0.95);
-                    
+
                     canvas.setColor(colorFact.getWhite());
                     canvas.drawText(g2d.newPoint2D(0.5, 0.15), tile.getName(), 0.15, true, true);
                     break;
@@ -106,7 +106,7 @@ public class TileDrawer {
                 case EMPTY:
                     canvas.setColor(colorFact.getWhite());
                     canvas.drawFilledRectangle(g2d.newPoint2D(0.5, 0.5), 0.95, 0.95);
-                    
+
                     canvas.setColor(colorFact.getBlack());
                     canvas.drawText(g2d.newPoint2D(0.5, 0.15), tile.getName(), 0.15, true, true);
                 default:

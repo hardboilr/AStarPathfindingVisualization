@@ -123,6 +123,4 @@ public class Node implements Iterable<Edge>, Comparable<Node> {
             }
         }
     }
-    
-    
 }

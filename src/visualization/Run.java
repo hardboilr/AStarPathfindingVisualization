@@ -81,8 +81,17 @@ public class Run {
                 + "-----------------------x-------------x--x----\n"
                 + "-----------------------x---------------------\n"
                 + "--x------------------------------------------\n";
+        
+        // same scenario as this: https://www.youtube.com/watch?v=-L-WgKMFuhE 
+        String b7
+                = "-----------\n"
+                + "---xg------\n"
+                + "---xxxxx---\n"
+                + "-----------\n"
+                + "-------s---\n"
+                + "-----------\n";
 
-        Board board = new Board(b2); //< ---- select board here. Feel free to create new boards.
+        Board board = new Board(b7); //< ---- select board here. Feel free to create new boards.
         Scenario scen1 = new Scenario(boardSizeX, boardSizeY, board.getNodes(Type.BLOCK_NODE));
 
         PanAndZoom2DApp app = new SearchAlgorithmVisualizationApp(aStar, scen1, board.getNode(Type.START_NODE), board.getNode(Type.GOAL_NODE));

@@ -1,7 +1,5 @@
 package aStar.model;
 
-import aStar.model.Node;
-
 public class Edge {
 
     private final Node begin;

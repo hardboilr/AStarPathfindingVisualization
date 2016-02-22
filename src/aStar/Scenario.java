@@ -17,10 +17,6 @@ public class Scenario {
     public Scenario(int sizeX, int sizeY, List<Node> blockNodes) {
         this.sizeX = sizeX;
         this.sizeY = sizeY;
-
-//        System.out.println("Scenario, sizeX: " + sizeX);
-//        System.out.println("Scenario, sizeY: " + sizeY);
-
         this.blockNodes = blockNodes;
     }
 
@@ -36,14 +32,12 @@ public class Scenario {
                 boolean canPass = true;
                 for (Node node : blockNodes) {
                     if (x == node.getXPos() && y == node.getYPos()) {
-//                        System.out.println("Found block node: " + x + "," + y);
                         nodes[x][y] = null;
                         canPass = false;
                         break;
                     }
                 }
                 if (canPass) {
-//                    System.out.println("found regular node: " + x + "," + y);
                     nodes[x][y] = graph.createNode("(" + x + "," + y + ")", x, y, Type.REGULAR_NODE);
                 }
             }
@@ -54,7 +48,6 @@ public class Scenario {
             for (int x = 0; x < sizeX; ++x) {
                 Node m = nodes[x][y];
                 if (m != null) {
-//                    System.out.println("setting neighbours");
                     //North
                     int nx = x;
                     int ny = y + 1;

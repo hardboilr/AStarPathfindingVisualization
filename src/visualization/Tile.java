@@ -25,11 +25,11 @@ public class Tile {
     public double getgCost() {
         return gCost;
     }
-    
+
     public double gethCost() {
         return hCost;
     }
-    
+
     public double getfCost() {
         return fCost;
     }

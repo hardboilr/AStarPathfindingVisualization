@@ -13,11 +13,6 @@ import java.util.Queue;
 import java.util.Set;
 import visualization.model.Iteration;
 
-/**
- * Todo: Refresh queue when Gval is updated
- *
- * @author Tobias Jacobsen
- */
 public class AStarAlgorithm {
 
     private final IHeuristic heuristic;
@@ -98,10 +93,6 @@ public class AStarAlgorithm {
             }
             step++;
         }
-    }
-
-    public List<Node> getCurNodes() {
-        return curNodes;
     }
 
     public int getSteps() {

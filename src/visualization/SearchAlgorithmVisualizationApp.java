@@ -47,20 +47,11 @@ public class SearchAlgorithmVisualizationApp implements PanAndZoom2DApp {
         this.startNode = startNode;
         this.goalNode = goalNode;
         scenarioNodes = scenario.createScenario();
-
-//        for (int x = 0; x < sizeX; x++) {
-//            for (int y = 0; y < sizeY; y++) {
-//                Node n = scenarioNodes[x][y];
-//                System.out.println("ScenarioNode: " + n);
-//            }
-//        }
-
         shortestPathNodes = aStar.findShortestPath(scenarioNodes[startNode.getXPos()][startNode.getYPos()], scenarioNodes[goalNode.getXPos()][goalNode.getYPos()]);
     }
 
     @Override
     public PanAndZoomInit initialize(PanAndZoomToolKit toolkit, double aspectRatio) {
-        System.out.println("init");
         this.cf = toolkit.cf();
         this.g2d = toolkit.g2d();
         tileDrawer = new TileDrawer(g2d, cf);
@@ -105,19 +96,6 @@ public class SearchAlgorithmVisualizationApp implements PanAndZoom2DApp {
 
     @Override
     public void onKeyReleased(KeyReleasedEvent e) {
-        // Step 0. Draw empty map with A, B and blocks
-        // Step 1. Draw all nodes surrounding currentNode (color them green) <- initially this will be A
-        // Step 2. Select node with lowest fCost and mark "closed" (color in read) 
-        // (if more nodes have same fCost, then select node with lowest hCost. This will be closest to goal)
-        // Step 3. Repeat step 1
-        // Step 4. When goal node is reaching, color the path nodes blue
-        // Step 1 -> end of curNodes. Draw first node in consideration and so forth, until end of list
-        // 2. Draw shortest path
-        // misc: display step at top
-        // 1. draw shortest path
-
-        System.out.println("Keyboard step is: " + step);
-
         if (e.getKey().toString().equals(keyRight)) {
             if (step < aStar.getSteps() + 1) {
                 step++;
@@ -132,9 +110,9 @@ public class SearchAlgorithmVisualizationApp implements PanAndZoom2DApp {
             // rinse repeat through steps
             createInitialTiles();
             List<Iteration> iterations = aStar.getIterations(step);
+
             for (int i = 0; i < iterations.size(); i++) {
                 Iteration iteration = iterations.get(i);
-                System.out.println("---> Iteration: " + (i + 1));
                 for (Node n : iteration.getNodes()) {
                     System.out.println(n + ", " + n.getType());
                     tiles[n.getXPos()][n.getYPos()] = new Tile(n.getName(), n.getXPos(), n.getYPos(), n.getGVal(), n.getHVal(), n.getFVal(), n.getType());
@@ -149,8 +127,6 @@ public class SearchAlgorithmVisualizationApp implements PanAndZoom2DApp {
 
             for (int i = 0; i < iterations.size(); i++) {
                 Iteration iteration = iterations.get(i);
-                System.out.println("final ---> Iteration: " + (i + 1));
-
                 for (int j = 0; j < iteration.getNodes().size(); j++) {
                     Node n = iteration.getNodes().get(j);
                     System.out.println(n + ", " + n.getType());
